@@ -40,13 +40,15 @@ const Share = () => {
                 }
                 setCurrentMovies(pulledMovies);
                 setMissingMovies(erroredMovies);
-                movieRef.current.click();
+                if (pulledMovies.length > 0) {
+                    movieRef.current.click();
+                }
             })
             .catch(function (error) {
                 setMissingMovies(5);
                 alert(error);
             });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     let posters = (
