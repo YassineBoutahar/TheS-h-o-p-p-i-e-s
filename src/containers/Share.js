@@ -5,11 +5,10 @@ import { useLocation } from "react-router-dom";
 import Coverflow from 'react-coverflow';
 import axios from 'axios';
 import ShopifyTrophy from '../ShopifyTrophy.png';
+import PosterNotAvailable from '../PosterNotAvailable.jpg';
 const apiKey = 'cc1c6651'
 
-function useQuery() {
-    return new URLSearchParams(useLocation().search);
-}
+const useQuery = () => new URLSearchParams(useLocation().search);
 
 const Share = () => {
     let query = useQuery();
@@ -55,10 +54,12 @@ const Share = () => {
         currentMovies.map((movie, index) => (
             <img
                 ref={index === 0 ? movieRef : null}
-                key={index + 1} src={movie.Poster}
+                key={index + 1}
+                src={movie.Poster !== 'N/A' ? movie.Poster : PosterNotAvailable}
                 alt={movie.Title}
                 data-action={`https://www.imdb.com/title/${movie.imdbID}`}
                 style={{ display: 'block', width: '100%' }}
+                onError={(e) => {e.target.src = PosterNotAvailable}}
             />
 
         ))
