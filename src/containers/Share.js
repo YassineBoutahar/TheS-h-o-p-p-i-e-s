@@ -14,6 +14,7 @@ function useQuery() {
 const Share = () => {
     let query = useQuery();
     const friendName = query.get("name") ? query.get("name") : 'Your friend'
+    const nominations = query.get("nominations") ? query.get("nominations").split(',') : [];
 
     const [currentMovies, setCurrentMovies] = useState([]);
     const [missingMovies, setMissingMovies] = useState(0);
@@ -21,7 +22,6 @@ const Share = () => {
     const movieRef = useRef(null);
 
     useEffect(() => {
-        const nominations = query.get("nominations") ? query.get("nominations").split(',') : [];
         let promiseArray = [];
         let pulledMovies = [];
         let erroredMovies = 0;
@@ -46,6 +46,7 @@ const Share = () => {
                 setMissingMovies(5);
                 alert(error);
             });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     let posters = (
