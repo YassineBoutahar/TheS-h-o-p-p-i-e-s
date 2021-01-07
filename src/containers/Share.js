@@ -26,7 +26,7 @@ const Share = () => {
         let pulledMovies = [];
         let erroredMovies = 0;
         for (const movieId of nominations) {
-            promiseArray.push(axios.get(`http://www.omdbapi.com/?apikey=${apiKey}&i=${movieId}`));
+            promiseArray.push(axios.get(`https://www.omdbapi.com/?apikey=${apiKey}&i=${movieId}`));
         }
         Promise.all(promiseArray)
             .then((responses) => {

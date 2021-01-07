@@ -66,7 +66,7 @@ const Home = () => {
 
     setOMDBRequestLoading(true);
 
-    axios.get(`http://www.omdbapi.com/?apikey=${apiKey}&type=movie&s=${searchValue}&page=${currPage}`)
+    axios.get(`https://www.omdbapi.com/?apikey=${apiKey}&type=movie&s=${searchValue}&page=${currPage}`)
       .then((response) => {
         if (response.data.Response === 'True') {
           setCurrentMovies(response.data.Search);
