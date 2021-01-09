@@ -2,6 +2,8 @@
 
 By Yassine Boutahar
 
+The project can be viewed at http://shoppies.boutahar.dev/ or https://the-2020-shoppies.netlify.app/
+
 **Extra features:**
 - Saves your nominations in local storage so nominations persist on reload
 - Loading animations on movie search
